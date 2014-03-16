@@ -3,3 +3,8 @@ http://drvic10k.github.io/bootstrap-sortable/
 
 http://stackoverflow.com/questions/6125265/using-layouts-in-haml-files-independently-of-rails
 http://getbootstrap.com/examples/navbar-fixed-top/
+
+
+Total time of run
+file path/name/line number of step
+highlight and note scenarios that are the highest/slowest etc

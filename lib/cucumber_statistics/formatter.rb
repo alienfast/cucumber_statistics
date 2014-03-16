@@ -35,10 +35,12 @@ module CucumberStatistics
 
       @step_statistics.calculate
 
-      AllUsageResultsHtmlPresenter.new @step_statistics
-      UnusedStepsHtmlPresenter.new @unused_steps
-      StepAverageAndTotalHtmlPresenter.new @step_statistics
-      StepTimesOfWholeHtmlPresenter.new @step_statistics
+      Renderer.render_step_statistics @step_statistics
+
+      #AllUsageResultsHtmlPresenter.new @step_statistics
+      #UnusedStepsHtmlPresenter.new @unused_steps
+      #StepAverageAndTotalHtmlPresenter.new @step_statistics
+      #StepTimesOfWholeHtmlPresenter.new @step_statistics
     end
   end
 end

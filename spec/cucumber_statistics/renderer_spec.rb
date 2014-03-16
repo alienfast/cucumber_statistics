@@ -11,12 +11,12 @@ module CucumberStatistics
       # clean up before start, leave after in case we want to inspect it.
       Configuration.clean_tmp_dir
 
-      subject.record 'my step 1', 25
-      subject.record 'my step 1', 50
-      subject.record 'my step 2', 49
-      subject.record 'my step 2', 51
-      subject.record 'my step 3', 75
-      subject.record 'my step 3', 10
+      subject.record 'my step 1', 0.000116
+      subject.record 'my step 1', 9.213553
+      subject.record 'my step 2', 0.000117
+      subject.record 'my step 2', 14.204407
+      subject.record 'my step 3', 0.000131
+      subject.record 'my step 3', 3.48993
 
       subject.calculate
     end
