@@ -2,6 +2,7 @@ require 'cucumber_statistics/configuration'
 require 'cucumber_statistics/step_statistics'
 require 'cucumber_statistics/unused_steps'
 require 'cucumber_statistics/formatter'
+require 'cucumber_statistics/renderer'
 
 
 require 'cucumber_statistics/presenters/html_template'

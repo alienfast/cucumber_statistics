@@ -22,6 +22,10 @@ module CucumberStatistics
         "#{tmp_dir}/#{filename}"
       end
 
+      def result_step_statistics
+        tmp_file('step_statistics.html')
+      end
+
 
       def resolve_path_from_root(relative_path)
         if defined?(Rails)
@@ -32,22 +36,22 @@ module CucumberStatistics
           File.expand_path(relative_path, Dir.pwd)
         end
       end
-
-      def all_usage_results
-        File.expand_path('templates/all_usage_results.html', File.dirname(__FILE__))
-      end
-
-      def unused_steps
-        File.expand_path('templates/unused_steps.html', File.dirname(__FILE__))
-      end
-
-      def step_times_of_whole
-        File.expand_path('templates/step_times_of_whole.html', File.dirname(__FILE__))
-      end
-
-      def step_average_and_total
-        File.expand_path('templates/step_average_and_total.html', File.dirname(__FILE__))
-      end
+      #
+      #def all_usage_results
+      #  File.expand_path('templates/all_usage_results.html', File.dirname(__FILE__))
+      #end
+      #
+      #def unused_steps
+      #  File.expand_path('templates/unused_steps.html', File.dirname(__FILE__))
+      #end
+      #
+      #def step_times_of_whole
+      #  File.expand_path('templates/step_times_of_whole.html', File.dirname(__FILE__))
+      #end
+      #
+      #def step_average_and_total
+      #  File.expand_path('templates/step_average_and_total.html', File.dirname(__FILE__))
+      #end
     end
   end
 end
