@@ -1,6 +1,8 @@
 # Cucumber Statistics
 
-An cucumber formatter that will gather statistics and generate a single page showing step time metrics.
+### Work in progress
+
+A cucumber formatter that will gather statistics and generate a single page showing step time metrics.
 
 Work in progress: the intent is to provide a way to hook this in and always generate the file, as well as us it as a standard formatter.
 
