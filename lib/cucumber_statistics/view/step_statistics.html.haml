@@ -131,6 +131,8 @@
     %script{:src => "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
     %script{:src => "https://raw.githack.com/drvic10k/bootstrap-sortable/master/Scripts/moment.min.js"}
     %script{:src => "https://raw.githack.com/drvic10k/bootstrap-sortable/master/Scripts/bootstrap-sortable.js"}
-    %script{:type => "javascript"}
-      \// Initialise on DOM ready
-      \//    $($.bootstrapSortable(true, 'reversed'));
+    :javascript
+      // Initialise on DOM ready
+      $(function() {
+          $.bootstrapSortable(true, 'reversed');
+      });
