@@ -79,16 +79,7 @@
       .jumbotron
         %h1 Cucumber step statistics
         %p ... allows you to easily diagnose long running steps.
-      /
-        step
-        fastest
-        slowest
-        variation
-        variance
-        standard_deviation
-        count
-        average
-        total
+
       %table.table.table-bordered.table-striped.sortable
         %thead
           %tr
@@ -102,17 +93,19 @@
             %th Average
             %th{"data-defaultsort" => "desc"} Total
         %tbody
-          %tr
-            %td /^I am logged in as ((?:(?:)|(?:(?:a|an|another|the|that) )?(?:(?:(?:(?:first|last|(?:\d+(?:st|nd|rd|th))) )?(?:paper[_ ]trail[_ ]version|acts[_ ]as[_ ]taggable[_ ]on[_ ]tag|acts[_ ]as[_ ]taggable[_ ]on[_ ]tagging|user|active[_ ]record[_ ]schema[_ ]migration|plan|feature|reference[_ ]type|allergy|relationship[_ ]type|allergy[_ ]type|medical[_ ]condition[_ ]type|account|rspec[_ ]account|address|sacred[_ ]heart[_ ]address|calendar[_ ]item|catalog|child|jack|jennifer[_ ]dillon|coupon|employment|enrollment|medical[_ ]condition|membership|organization|sacredheart|participation|person|sacredheart[_ ]person|bob|perry|carla|jordan|alienfast|alienfast[_ ]person|blake|kevin|alicia|product|relationship|subscription|rspec[_ ]subscription|tenant|transaction|admin|admin[_ ]not[_ ]owner|staff|consumer|consumer[_ ]dad|support|bmcdaniel|kross|awaters|verification))|(?:(?:paper[_ ]trail[_ ]version|acts[_ ]as[_ ]taggable[_ ]on[_ ]tag|acts[_ ]as[_ ]taggable[_ ]on[_ ]tagging|user|active[_ ]record[_ ]schema[_ ]migration|plan|feature|reference[_ ]type|allergy|relationship[_ ]type|allergy[_ ]type|medical[_ ]condition[_ ]type|account|rspec[_ ]account|address|sacred[_ ]heart[_ ]address|calendar[_ ]item|catalog|child|jack|jennifer[_ ]dillon|coupon|employment|enrollment|medical[_ ]condition|membership|organization|sacredheart|participation|person|sacredheart[_ ]person|bob|perry|carla|jordan|alienfast|alienfast[_ ]person|blake|kevin|alicia|product|relationship|subscription|rspec[_ ]subscription|tenant|transaction|admin|admin[_ ]not[_ ]owner|staff|consumer|consumer[_ ]dad|support|bmcdaniel|kross|awaters|verification)(?::? "(?:\\"|[^\"]|\.)*"))))) at (\w+)$/
-            %td 7.051
-            %td 4.099
-            %td 4.099
-            %td 0.320
-            %td 0.566
-            %td 76
-            %td 0.490
-            %td 37.288
-          %tr
+          - step_statistics.all.each do |step_results|
+
+            %tr
+              %td= step_results[0]
+              %td= step_results[1][:fastest]
+              %td= step_results[1][:slowest]
+              %td= step_results[1][:variation]
+              %td= step_results[1][:variance]
+              %td= step_results[1][:standard_deviation]
+              %td= step_results[1][:count]
+              %td= step_results[1][:average]
+              %td= step_results[1][:total]
+          -#%tr
             %td /^Blah I am logged in as ((?:(?:)|(?:(?:a|an|another|the|that) )?(?:(?:(?:(?:first|last|(?:\d+(?:st|nd|rd|th))) )?(?:paper[_ ]trail[_ ]version|acts[_ ]as[_ ]taggable[_ ]on[_ ]tag|acts[_ ]as[_ ]taggable[_ ]on[_ ]tagging|user|active[_ ]record[_ ]schema[_ ]migration|plan|feature|reference[_ ]type|allergy|relationship[_ ]type|allergy[_ ]type|medical[_ ]condition[_ ]type|account|rspec[_ ]account|address|sacred[_ ]heart[_ ]address|calendar[_ ]item|catalog|child|jack|jennifer[_ ]dillon|coupon|employment|enrollment|medical[_ ]condition|membership|organization|sacredheart|participation|person|sacredheart[_ ]person|bob|perry|carla|jordan|alienfast|alienfast[_ ]person|blake|kevin|alicia|product|relationship|subscription|rspec[_ ]subscription|tenant|transaction|admin|admin[_ ]not[_ ]owner|staff|consumer|consumer[_ ]dad|support|bmcdaniel|kross|awaters|verification))|(?:(?:paper[_ ]trail[_ ]version|acts[_ ]as[_ ]taggable[_ ]on[_ ]tag|acts[_ ]as[_ ]taggable[_ ]on[_ ]tagging|user|active[_ ]record[_ ]schema[_ ]migration|plan|feature|reference[_ ]type|allergy|relationship[_ ]type|allergy[_ ]type|medical[_ ]condition[_ ]type|account|rspec[_ ]account|address|sacred[_ ]heart[_ ]address|calendar[_ ]item|catalog|child|jack|jennifer[_ ]dillon|coupon|employment|enrollment|medical[_ ]condition|membership|organization|sacredheart|participation|person|sacredheart[_ ]person|bob|perry|carla|jordan|alienfast|alienfast[_ ]person|blake|kevin|alicia|product|relationship|subscription|rspec[_ ]subscription|tenant|transaction|admin|admin[_ ]not[_ ]owner|staff|consumer|consumer[_ ]dad|support|bmcdaniel|kross|awaters|verification)(?::? "(?:\\"|[^\"]|\.)*"))))) at (\w+)$/
             %td 4.051
             %td 8.099
