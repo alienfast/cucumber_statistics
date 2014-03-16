@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://raw.github.com/distributedlife/cucumber_statistics/master/lib/cucumber_statistics/javascript/jquery.sparkline.min.js"></script>
+        <script type="text/javascript">
+            $(function() {$('.average').sparkline('html', {type: 'line', width: '100%', height: '400px', normalRangeMin: '0.0', normalRangeMax: '1.0'}); });
+        </script>
+    </head>
+    <body>
+        <h1>Step Times</h1>
+        <span style='color:red;'>Red is the total time that step took across the build,</span>
+        <span style='color:blue;'>Blue is the average time that step took,</span>
+        <span style='color:grey;'>The grey box is 1.0 second</span>
+        <br/>
+        <span style='color:red;'>PP_HIGHEST_TOTAL_STEP_TIME seconds</span>, <span style='color:blue;'>PP_HIGHEST_AVERAGE_STEP_TIME seconds</span>
+        <span class='average'>PP_AVERAGE_TIMES_PLOT_DATA</span>
+        0.0 seconds
+        <hr>
+
+        <script type="text/javascript">
+            $(function() {$('.average').sparkline([PP_TOTAL_TIMES_PLOT_DATA], {composite: true, fillColor: false, lineColor: 'red'}); });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://raw.github.com/distributedlife/cucumber_statistics/master/lib/cucumber_statistics/javascript/jquery.sparkline.min.js"></script>
+         <script type="text/javascript">
+            $(function() {$('.step_part').sparkline('html', {type: 'pie', width: '400px', height: '400px'}); });
+        </script>
+    </head>
+    <body>
+        <h1>Step part of Total</h1>
+        <span class='step_part'>PP_STEP_TOTAL_TIMES_PLOT_DATA</span>
+        <br/>
+        Total Time Spend in Tests: PP_TOTAL_ELAPSED_TIME minutes
+        <hr>
+    </body>
+</html>
