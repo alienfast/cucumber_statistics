@@ -4,6 +4,9 @@ module CucumberStatistics
   describe RendererHelper do
 
     describe '#format' do
+      it 'formats milliseconds' do
+        assert_format(0.000123, '< 0.000s')
+      end
       it 'formats seconds' do
         assert_format(3.123456, '3.123s')
       end

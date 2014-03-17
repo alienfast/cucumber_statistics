@@ -31,7 +31,8 @@ module CucumberStatistics
     end
 
     def sort_by_property property
-      @all.sort {|a,b| a.last[property.to_sym] <=> b.last[property.to_sym]}
+      result = @all.sort {|a,b| a.last[property.to_sym] <=> b.last[property.to_sym]}
+      result
     end
 
     def highest_average
