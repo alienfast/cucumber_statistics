@@ -118,13 +118,13 @@ module CucumberStatistics
 
       describe 'highest_elapsed_time' do
         it 'should return the record with the highest elapsed time' do
-          subject.highest_elapsed_time.first.should == "my step 2"
+          subject.highest_total.first.should == "my step 2"
         end
       end
 
       describe 'greatest_variation' do
         it 'should return the record with the greatest variation between slow and fast' do
-          subject.greatest_variation.first.should == "my step 3"
+          subject.highest_variation.first.should == "my step 3"
         end
       end
 

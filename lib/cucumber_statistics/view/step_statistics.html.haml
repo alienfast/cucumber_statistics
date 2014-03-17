@@ -93,11 +93,17 @@
             %th Average
             %th{"data-defaultsort" => "desc"} Total
         %tbody
+
+          - highest_average = step_statistics.highest_average
+          - highest_total = step_statistics.highest_total
+          - highest_variation = step_statistics.highest_variation
+
+
           - step_statistics.all.each do |step_results|
 
             %tr
               %td= step_results[0]
-              %td= step_results[1][:fastest]
+              %td= fs step_results[1][:fastest]
               %td= step_results[1][:slowest]
               %td= step_results[1][:variation]
               %td= step_results[1][:variance]

@@ -38,11 +38,11 @@ module CucumberStatistics
       sort_by_property(:average).reverse.first
     end
 
-    def highest_elapsed_time
+    def highest_total
       sort_by_property(:total).reverse.first
     end
 
-    def greatest_variation
+    def highest_variation
       sort_by_property(:variation).reverse.first
     end
 
