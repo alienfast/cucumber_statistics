@@ -11,12 +11,12 @@ module CucumberStatistics
       # clean up before start, leave after in case we want to inspect it.
       Configuration.clean_tmp_dir
 
-      subject.record 'my step 1', 0.000116
-      subject.record 'my step 1', 9.213553
-      subject.record 'my step 2', 0.000117
-      subject.record 'my step 2', 14.204407
-      subject.record 'my step 3', 0.000131
-      subject.record 'my step 3', 3.48993
+      record 'my step 1', 0.000116
+      record 'my step 1', 9.213553
+      record 'my step 2', 0.000117
+      record 'my step 2', 14.204407
+      record 'my step 3', 0.000131
+      record 'my step 3', 3.48993
 
       subject.calculate
     end
@@ -35,8 +35,9 @@ module CucumberStatistics
       end
     end
 
-    def fixture
-
+    def record(step_name, duration)
+      # fake a source for convenience
+      subject.record step_name, duration, '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:8'
     end
   end
 end

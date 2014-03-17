@@ -2,20 +2,24 @@ module CucumberStatistics
 
   class RendererHelper
 
+    def name_td(step_results)
+      %{<td title="#{step_results[1][:file]}">#{step_results[0]}</td>}
+    end
+
     def time_td(step_results, metric, *warning_step_results)
       duration = step_results[1][metric]
 
-      %{<td #{alarming_class(step_results, warning_step_results)} data-value="#{duration}">#{format(duration)}</td>}
+      %{<td #{warning_class(step_results, warning_step_results)} data-value="#{duration}">#{format(duration)}</td>}
     end
 
-    def alarming_class(step_results, warning_step_results)
+    def warning_class(step_results, warning_step_results)
 
       if warning_step_results.nil? || warning_step_results.empty?
-        is_alarming = false
+        should_warn = false
       else
-        is_alarming = (step_results[0].eql? warning_step_results[0][0])
+        should_warn = (step_results[0].eql? warning_step_results[0][0])
       end
-      if is_alarming
+      if should_warn
         %{class="danger"}
       else
         ''
@@ -28,6 +32,8 @@ module CucumberStatistics
     end
 
     def format (ts)
+
+      return '-' if ts.nil?
 
       #find the seconds
       seconds = ts % 60

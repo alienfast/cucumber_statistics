@@ -22,7 +22,7 @@ module CucumberStatistics
 
       step_definition = step_match.step_definition
       unless step_definition.nil? # nil if it's from a scenario outline
-        @step_statistics.record step_definition.regexp_source, @duration
+        @step_statistics.record step_definition.regexp_source, @duration, file_colon_line
       end
     end
 

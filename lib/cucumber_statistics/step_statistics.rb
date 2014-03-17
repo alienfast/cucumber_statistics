@@ -4,11 +4,19 @@ module CucumberStatistics
       @all = Hash.new
     end
 
-    def record step_name, duration
+    def record step_name, duration, file_colon_line
+
+      # "/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:8"
       step_results = @all[step_name]
       step_results ||= Hash.new
       step_results[:instances] ||= []
       step_results[:instances] << duration
+      begin
+        file = file_colon_line[file_colon_line.index('features')..-1]
+        step_results[:file] = file
+      rescue Exception => e
+        step_results[:file] = e.message
+      end
 
       @all[step_name] ||= step_results
     end

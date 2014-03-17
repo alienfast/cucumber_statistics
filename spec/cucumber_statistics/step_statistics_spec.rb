@@ -8,7 +8,7 @@ module CucumberStatistics
 
     describe 'record' do
       it 'should create a record' do
-        subject.record "my step", 50
+        record "my step", 50
 
         subject.all.count.should == 1
         subject.all['my step'][:instances].count.should == 1
@@ -16,8 +16,8 @@ module CucumberStatistics
       end
 
       it 'should support multiple instances of record' do
-        subject.record "my step", 50
-        subject.record "my step", 75
+        record "my step", 50
+        record "my step", 75
 
         subject.all.count.should == 1
         subject.all['my step'][:instances].count.should == 2
@@ -28,9 +28,9 @@ module CucumberStatistics
 
     describe 'calculate' do
       before(:each) do
-        subject.record "my step", 25
-        subject.record "my step", 50
-        subject.record "my step", 75
+        record "my step", 25
+        record "my step", 50
+        record "my step", 75
 
         subject.calculate
       end
@@ -70,9 +70,9 @@ module CucumberStatistics
 
     describe 'all' do
       before(:each) do
-        subject.record "my step 1", 24
-        subject.record "my step 1", 50
-        subject.record "my step 2", 75
+        record "my step 1", 24
+        record "my step 1", 50
+        record "my step 2", 75
       end
 
       it 'should return all records' do
@@ -90,12 +90,12 @@ module CucumberStatistics
 
     describe 'set operations' do
       before(:each) do
-        subject.record "my step 1", 25
-        subject.record "my step 1", 50
-        subject.record "my step 2", 49
-        subject.record "my step 2", 51
-        subject.record "my step 3", 75
-        subject.record "my step 3", 10
+        record "my step 1", 25
+        record "my step 1", 50
+        record "my step 2", 49
+        record "my step 2", 51
+        record "my step 3", 75
+        record "my step 3", 10
 
         subject.calculate
       end
@@ -142,12 +142,12 @@ module CucumberStatistics
 
       describe 'average_times_plot_data' do
         it 'should return all the averages sorted by average amount descending' do
-          subject.record "my step 1", 25
-          subject.record "my step 1", 50
-          subject.record "my step 2", 49
-          subject.record "my step 2", 51
-          subject.record "my step 3", 75
-          subject.record "my step 3", 10
+          record "my step 1", 25
+          record "my step 1", 50
+          record "my step 2", 49
+          record "my step 2", 51
+          record "my step 3", 75
+          record "my step 3", 10
 
           subject.calculate
           
@@ -157,10 +157,10 @@ module CucumberStatistics
 
       describe 'total_times_plot_data' do
         it 'should return the total times of each step sorted by average amount descending' do
-          subject.record "my step 1", 25
-          subject.record "my step 1", 50
-          subject.record "my step 3", 75
-          subject.record "my step 3", 10
+          record "my step 1", 25
+          record "my step 1", 50
+          record "my step 3", 75
+          record "my step 3", 10
 
           subject.calculate
 

@@ -102,7 +102,7 @@
           - step_statistics.all.each do |step_results|
 
             %tr
-              %td= step_results[0]
+              = name_td step_results
               = time_td step_results, :fastest
               = time_td step_results, :slowest
               = time_td step_results, :variation, highest_variation
@@ -112,7 +112,7 @@
               = time_td step_results, :average, highest_average
               = time_td step_results, :total, highest_total
           -#%tr
-            %td /^Blah I am logged in as ((?:(?:)|(?:(?:a|an|another|the|that) )?(?:(?:(?:(?:first|last|(?:\d+(?:st|nd|rd|th))) )?(?:paper[_ ]trail[_ ]version|acts[_ ]as[_ ]taggable[_ ]on[_ ]tag|acts[_ ]as[_ ]taggable[_ ]on[_ ]tagging|user|active[_ ]record[_ ]schema[_ ]migration|plan|feature|reference[_ ]type|allergy|relationship[_ ]type|allergy[_ ]type|medical[_ ]condition[_ ]type|account|rspec[_ ]account|address|sacred[_ ]heart[_ ]address|calendar[_ ]item|catalog|child|jack|jennifer[_ ]dillon|coupon|employment|enrollment|medical[_ ]condition|membership|organization|sacredheart|participation|person|sacredheart[_ ]person|bob|perry|carla|jordan|alienfast|alienfast[_ ]person|blake|kevin|alicia|product|relationship|subscription|rspec[_ ]subscription|tenant|transaction|admin|admin[_ ]not[_ ]owner|staff|consumer|consumer[_ ]dad|support|bmcdaniel|kross|awaters|verification))|(?:(?:paper[_ ]trail[_ ]version|acts[_ ]as[_ ]taggable[_ ]on[_ ]tag|acts[_ ]as[_ ]taggable[_ ]on[_ ]tagging|user|active[_ ]record[_ ]schema[_ ]migration|plan|feature|reference[_ ]type|allergy|relationship[_ ]type|allergy[_ ]type|medical[_ ]condition[_ ]type|account|rspec[_ ]account|address|sacred[_ ]heart[_ ]address|calendar[_ ]item|catalog|child|jack|jennifer[_ ]dillon|coupon|employment|enrollment|medical[_ ]condition|membership|organization|sacredheart|participation|person|sacredheart[_ ]person|bob|perry|carla|jordan|alienfast|alienfast[_ ]person|blake|kevin|alicia|product|relationship|subscription|rspec[_ ]subscription|tenant|transaction|admin|admin[_ ]not[_ ]owner|staff|consumer|consumer[_ ]dad|support|bmcdaniel|kross|awaters|verification)(?::? "(?:\\"|[^\"]|\.)*"))))) at (\w+)$/
+            %td /^Blah I am logged in as ((?:(?:)|(?:(?:a|an|another|the|that) )?(?:(?:(?:(?:first|last|(?:\d+(?:st|nd|rd|th))) )?(?:paper[_ ]trail[_ ]version|acts[_ ]as[_ ]taggable[_ ]on[_ ]tag|acts[_ ]as[_ ]taggable[_ ]on[_ ]tagging|user|active[_ ]record[_ ]schema[_ ]migration|plan|feature|reference[_ ]type|allergy|relationship[_ ]type|allergy[_ ]type|medical[_ ]condition[_ ]type|account|rspec[_ ]account|address|)(?::? "(?:\\"|[^\"]|\.)*"))))) at (\w+)$/
             %td 4.051
             %td 8.099
             %td 5.099
