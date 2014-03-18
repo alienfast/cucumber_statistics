@@ -33,8 +33,6 @@ Gem::Specification.new do |spec|
   # runtime
   spec.add_runtime_dependency 'haml'
   spec.add_runtime_dependency 'tilt'
-  spec.add_runtime_dependency 'awesome_print'
   spec.add_runtime_dependency 'cucumber'
-
-
+  spec.add_runtime_dependency 'virtus'
 end

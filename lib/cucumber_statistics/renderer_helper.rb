@@ -65,5 +65,9 @@ module CucumberStatistics
 
       result
     end
+
+    def format_date_time (time)
+      time.strftime("%m/%d/%Y at %I:%M%p")
+    end
   end
 end

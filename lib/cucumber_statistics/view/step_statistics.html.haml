@@ -80,6 +80,14 @@
         %h1 Cucumber step statistics
         %p ... allows you to easily diagnose long running steps.
 
+      .alert.alert-info
+        %span
+          #{overall_statistics.feature_count} Features,
+          #{overall_statistics.scenario_count} Scenario,
+          #{overall_statistics.step_count} Steps completed in #{format(overall_statistics.duration)}.
+        %span.text-muted.pull-right.small
+          Finished on #{format_date_time(overall_statistics.end_time)}
+
       %table.table.table-bordered.table-striped.sortable
         %thead
           %tr

@@ -5,29 +5,55 @@ module CucumberStatistics
       @io = io
       @options = options
 
+      @overall_statistics = OverallStatistics.new
       @step_statistics = StepStatistics.new
       @unused_steps = UnusedSteps.new
     end
 
-    #call backs
+    #----------------------------------------------------
+    # Step callbacks
+    #----------------------------------------------------
     def before_step(step)
-      @start_time = Time.now
-      @step = step
+      @step_start_time = Time.now
     end
 
     def before_step_result(*args)
-      @duration = Time.now - @start_time
+      @step_duration = Time.now - @step_start_time
     end
 
     def after_step_result(keyword, step_match, multiline_arg, status, exception, source_indent, background, file_colon_line)
 
       step_definition = step_match.step_definition
       unless step_definition.nil? # nil if it's from a scenario outline
-        @step_statistics.record step_definition.regexp_source, @duration, file_colon_line
+        @step_statistics.record step_definition.regexp_source, @step_duration, file_colon_line
       end
     end
 
+
+    #----------------------------------------------------
+    # Overall callbacks
+    #----------------------------------------------------
+    #def before_feature(feature)
+    #end
+    def scenario_name(keyword, name, file_colon_line, source_indent)
+      @overall_statistics.scenario_count_inc
+    end
+
+    def after_step(step)
+      @overall_statistics.step_count_inc
+    end
+
+    def after_feature(feature)
+      @overall_statistics.feature_count_inc
+    end
+
+    def before_features(features)
+      @overall_statistics.start_time = Time.now
+    end
+
     def after_features(features)
+
+      @overall_statistics.end_time = Time.now
 
       # gather unused steps
       @step_mother.unmatched_step_definitions.each do |step_definition|
@@ -36,12 +62,7 @@ module CucumberStatistics
 
       @step_statistics.calculate
 
-      Renderer.render_step_statistics @step_statistics
-
-      #AllUsageResultsHtmlPresenter.new @step_statistics
-      #UnusedStepsHtmlPresenter.new @unused_steps
-      #StepAverageAndTotalHtmlPresenter.new @step_statistics
-      #StepTimesOfWholeHtmlPresenter.new @step_statistics
+      Renderer.render_step_statistics @step_statistics, @overall_statistics
     end
   end
 end

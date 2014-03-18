@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'ap'
 
 module CucumberStatistics
   describe UnusedSteps do
@@ -10,7 +9,6 @@ module CucumberStatistics
     describe 'record' do
       it 'should create a record' do
         subject.record "my_step", "some code somewhere"
-
         subject.all['my_step'].should == "some code somewhere"
       end
     end
