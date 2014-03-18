@@ -12,6 +12,7 @@ module CucumberStatistics
     #call backs
     def before_step(step)
       @start_time = Time.now
+      @step = step
     end
 
     def before_step_result(*args)

@@ -17,6 +17,8 @@ module CucumberStatistics
       record 'my step 2', 14.204407
       record 'my step 3', 0.000131
       record 'my step 3', 3.48993
+      record 'my step 4', 4.21
+      record 'my step 4', 4.21
 
       subject.calculate
     end

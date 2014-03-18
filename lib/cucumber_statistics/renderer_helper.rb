@@ -33,7 +33,7 @@ module CucumberStatistics
 
     def format (ts)
 
-      return '-' if ts.nil?
+      return '-' if ts.nil? || ts == 0
 
       #find the seconds
       seconds = ts % 60
