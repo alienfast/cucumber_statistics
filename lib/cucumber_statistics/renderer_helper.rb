@@ -9,7 +9,7 @@ module CucumberStatistics
     def time_td(step_results, metric, *warning_step_results)
       duration = step_results[1][metric]
 
-      %{<td #{warning_class(step_results, warning_step_results)} data-value="#{duration}">#{format(duration)}</td>}
+      %{<td #{warning_class(step_results, warning_step_results)} data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
     end
 
     def warning_class(step_results, warning_step_results)
