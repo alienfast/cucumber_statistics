@@ -2,18 +2,19 @@
 
 A cucumber formatter that will gather statistics and generate a single page showing step time metrics.
 
-## Usage
+## Configuration
 
 1. For always-on automatic loading (recommended), add `require 'cucumber_statistics/autoload'` to `features/support/env.rb` or other support file.
 
 2. Or, add it to your `cucumber.yml` by adding `--format CucumberStatistics::Formatter` i.e.
 
-    std_opts = "-r features/support/ -r features/step_definitions --quiet --format CucumberStatistics::Formatter --format progress --format junit -o test-reports --strict --tags ~@wip --tags ~@todo"
+    `std_opts = "-r features/support/ -r features/step_definitions --quiet --format CucumberStatistics::Formatter --format progress --format junit -o test-reports --strict --tags ~@wip --tags ~@todo"`
 
 3. Or, use it via command line with the `--format CucumberStatistics::Formatter` option.
 
+## Results
 
-Look in the `./tmp/cucumber_statistics` for the generated html documents.
+Look in the `./tmp/cucumber_statistics` for the generated html document.
 
 ## Contributing
 
@@ -26,7 +27,7 @@ Please contribute!
 5. Create new Pull Request
 
 ## Credits
-Credit to [Ryan Boucher](https://github.com/distributedlife) [cucumber_timing_presenter](https://github.com/distributedlife/cucumber_timing_presenter) for the raw material used to gather statistics.
+Credit to Ryan Boucher [cucumber_timing_presenter](https://github.com/distributedlife/cucumber_timing_presenter) for the original code used to gather statistics.
 
 ## Copyright
 
