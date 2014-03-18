@@ -40,9 +40,9 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} Project name
+          %a.navbar-brand{:href => "#"} cucumber_statistics
         .navbar-collapse.collapse
-          %ul.nav.navbar-nav
+          -#%ul.nav.navbar-nav
             %li.active
               %a{:href => "#"} Home
             %li
@@ -67,12 +67,12 @@
                 %li
                   %a{:href => "#"} One more separated link
           %ul.nav.navbar-nav.navbar-right
+            -#%li
+            -#  %a{:href => "../navbar/"} Default
+            -#%li
+            -#  %a{:href => "../navbar-static-top/"} Static top
             %li
-              %a{:href => "../navbar/"} Default
-            %li
-              %a{:href => "../navbar-static-top/"} Static top
-            %li.active
-              %a{:href => "./"} Fixed top
+              %a{:href => "https://github.com/alienfast/cucumber_statistics", :target => 'other'} Github
         / /.nav-collapse
     .container
       / Main component for a primary marketing message or call to action
