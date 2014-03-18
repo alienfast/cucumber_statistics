@@ -16,6 +16,10 @@ A cucumber formatter that will gather statistics and generate a single page show
 
 Look in the `./tmp/cucumber_statistics` for the generated html document.
 
+## Why
+
+To figure out where the long running steps were.  This generates a bootstrap styled page with a sortable table, where the outliers are clearly identified.  It should be fast and easy to diagnose problems.
+
 ## Contributing
 
 Please contribute!
