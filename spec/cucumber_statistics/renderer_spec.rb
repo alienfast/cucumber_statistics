@@ -14,11 +14,11 @@ module CucumberStatistics
       overall_statistics.feature_count_inc
       overall_statistics.scenario_count_inc
 
-      record 'my step 1', 0.000116
+      record 'my step 1', 1.100116
       record 'my step 1', 9.213553
-      record 'my step 2', 0.000117
+      record 'my step 2', 3.100117
       record 'my step 2', 14.204407
-      record 'my step 3', 0.000131
+      record 'my step 3', 1.500131
       record 'my step 3', 3.48993
       record 'my step 4', 4.21
       record 'my step 4', 4.21
