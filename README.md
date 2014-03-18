@@ -1,6 +1,6 @@
 # Cucumber Statistics
 
-A cucumber formatter that will gather statistics and generate a single page showing step time metrics.
+Tracks cucumber timing and displays results in a single html page with outliers highlighted in a table sortable by various metrics.
 
 ## Installation
 
