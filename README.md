@@ -2,6 +2,12 @@
 
 A cucumber formatter that will gather statistics and generate a single page showing step time metrics.
 
+## Installation
+
+1. Add `gem 'cucumber_statistics'` to your `Gemfile`
+
+2. Or `gem install 'cucumber_statistics`
+
 ## Configuration
 
 1. For always-on automatic loading (recommended), add `require 'cucumber_statistics/autoload'` to `features/support/env.rb` or other support file.
