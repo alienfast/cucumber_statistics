@@ -7,6 +7,7 @@ module CucumberStatistics
 
       @overall_statistics = OverallStatistics.new
       @step_statistics = StepStatistics.new
+      @scenario_statistics = ScenarioStatistics.new
       @unused_steps = UnusedSteps.new
     end
 
@@ -30,12 +31,28 @@ module CucumberStatistics
 
 
     #----------------------------------------------------
+    # Feature Element callbacks
+    #----------------------------------------------------
+    def before_feature_element(feature_element)
+      @scenario_name = ''
+      @scenario_file_colon_line = ''
+      @scenario_start_time = Time.now
+    end
+
+    def after_feature_element(feature_element)
+      @scenario_duration = Time.now - @scenario_start_time
+      @scenario_statistics.record @scenario_name, @scenario_duration, @scenario_file_colon_line
+    end
+
+    #----------------------------------------------------
     # Overall callbacks
     #----------------------------------------------------
     #def before_feature(feature)
     #end
     def scenario_name(keyword, name, file_colon_line, source_indent)
       @overall_statistics.scenario_count_inc
+      @scenario_name = name
+      @scenario_file_colon_line = file_colon_line
     end
 
     def after_step(step)
@@ -62,7 +79,7 @@ module CucumberStatistics
       @step_statistics.calculate
 
       file = Renderer.render_step_statistics @step_statistics, @overall_statistics
-      puts "Cucumber statistics generated to #{file.to_s}"
+      Renderer.render_scenario_statistics @scenario_statistics, @overall_statistics
     end
   end
 end

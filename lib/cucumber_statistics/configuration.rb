@@ -26,6 +26,9 @@ module CucumberStatistics
         tmp_file('step_statistics.html')
       end
 
+      def result_scenario_statistics
+        tmp_file('scenario_statistics.html')
+      end
 
       def resolve_path_from_root(relative_path)
         if defined?(Rails)

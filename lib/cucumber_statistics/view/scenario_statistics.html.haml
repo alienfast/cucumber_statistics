@@ -1,0 +1,116 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "Cucumber Scenario Statistics", :name => "description"}/
+    %meta{:content => "AlienFast", :name => "author"}/
+    %title Cucumber Scenario Statistics
+    / Bootstrap core CSS
+    %link{:href => "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", :rel => "stylesheet"}/
+    / Custom styles for this layout
+    :css
+      body {
+          min-height: 2000px;
+          padding-top: 70px;
+      }
+
+      td {
+          white-space: nowrap;
+          /*max-width: 100px;*/
+      }
+      tr td:first-child {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 300px;
+      }
+    %link{:href => "https://raw.githack.com/drvic10k/bootstrap-sortable/master/Contents/bootstrap-sortable.css", :rel => "stylesheet"}/
+    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    /[if lt IE 9]
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  %body
+    / Fixed navbar
+    .navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} cucumber_statistics
+        .navbar-collapse.collapse
+          -#%ul.nav.navbar-nav
+            %li.active
+              %a{:href => "#"} Home
+            %li
+              %a{:href => "#about"} About
+            %li
+              %a{:href => "#contact"} Contact
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Dropdown
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"} Action
+                %li
+                  %a{:href => "#"} Another action
+                %li
+                  %a{:href => "#"} Something else here
+                %li.divider
+                %li.dropdown-header Nav header
+                %li
+                  %a{:href => "#"} Separated link
+                %li
+                  %a{:href => "#"} One more separated link
+          %ul.nav.navbar-nav.navbar-right
+            -#%li
+            -#  %a{:href => "../navbar/"} Default
+            -#%li
+            -#  %a{:href => "../navbar-static-top/"} Static top
+            %li
+              %a{:href => "https://github.com/alienfast/cucumber_statistics", :target => 'other'} Github
+        / /.nav-collapse
+    .container
+      / Main component for a primary marketing message or call to action
+      .jumbotron
+        %h1 Cucumber scenario statistics
+        %p ... find those slow scenarios.
+
+      .alert.alert-info
+        %span
+          #{overall_statistics.feature_count} Features,
+          #{overall_statistics.scenario_count} Scenarios,
+          #{overall_statistics.step_count} Steps completed in #{format(overall_statistics.duration)}.
+        %span.text-muted.pull-right.small
+          Finished on #{format_date_time(overall_statistics.end_time)}
+
+      %table.table.table-bordered.table-striped.sortable
+        %thead
+          %tr
+            %th Scenario
+            %th{"data-defaultsort" => "desc"} Time
+        %tbody
+
+          - scenario_statistics.all.each do |name, scenario_result|
+
+            %tr
+              = scenario_name_td name, scenario_result
+              = scenario_time_td scenario_result
+    / /container
+    /
+      Bootstrap core JavaScript
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+    %script{:src => "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+    %script{:src => "https://raw.githack.com/drvic10k/bootstrap-sortable/master/Scripts/moment.min.js"}
+    %script{:src => "https://raw.githack.com/drvic10k/bootstrap-sortable/master/Scripts/bootstrap-sortable.js"}
+    :javascript
+      // Initialise on DOM ready
+      $(function() {
+          $.bootstrapSortable(true, 'reversed');
+      });
