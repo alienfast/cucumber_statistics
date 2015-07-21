@@ -13,7 +13,7 @@ module CucumberStatistics
     #----------------------------------------------------
     # Step callbacks
     #----------------------------------------------------
-    def before_step(step)
+    def before_test_step(step)
       @step_start_time = Time.now
     end
 
