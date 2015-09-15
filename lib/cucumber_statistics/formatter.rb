@@ -56,12 +56,13 @@ module CucumberStatistics
 
       # gather unused steps
       @step_mother.unmatched_step_definitions.each do |step_definition|
-        @unused_steps.record step_definition.regexp_source, step_definition.file_colon_line
+        @unused_steps.record step_definition.regexp_source, step_definition.location.to_s
       end
 
       @step_statistics.calculate
 
-      Renderer.render_step_statistics @step_statistics, @overall_statistics
+      file = Renderer.render_step_statistics @step_statistics, @overall_statistics
+      puts "Cucumber statistics generated to #{file.to_s}"
     end
   end
 end
