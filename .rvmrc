@@ -1,3 +1,0 @@
-rvm use ruby-2.2.0@cucumber_statistics --create
-# CI
-# rvm use ruby-2.0.0@dropinhq-develop --create

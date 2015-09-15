@@ -20,7 +20,7 @@ Tracks cucumber timing and displays results in a single html page with outliers 
 
 ## Results
 
-Look in the `./tmp/cucumber_statistics` for the generated html document.
+Look in the `./target/cucumber_statistics` for the generated html document.
 
 ## Why?
 

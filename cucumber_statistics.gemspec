@@ -1,13 +1,13 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "cucumber_statistics/version"
+require 'cucumber_statistics/version'
 
 Gem::Specification.new do |spec|
-  spec.name        = "cucumber_statistics"
+  spec.name        = 'cucumber_statistics'
   spec.version     = CucumberStatistics::VERSION
-  spec.authors     = ["Kevin Ross"]
-  spec.email       = ["kevin.ross@alienfast.com.com"]
+  spec.authors     = ['Kevin Ross']
+  spec.email       = ['kevin.ross@alienfast.com.com']
   spec.summary     = <<-TEXT
     An cucumber formatter that will gather statistics and generate a single page showing step time metrics.
   TEXT
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   TEXT
 
 
-  spec.homepage    = "http://github.com/alienfast/cucumber_statistics"
+  spec.homepage    = 'http://github.com/alienfast/cucumber_statistics'
   spec.license = 'MIT'
 
   spec.files = `git ls-files`.split($/).reject { |f| f =~ /^samples\// }

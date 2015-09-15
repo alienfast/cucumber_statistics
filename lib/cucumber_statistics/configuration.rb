@@ -5,7 +5,7 @@ module CucumberStatistics
 
     class << self
 
-      $tmp_path = 'tmp/cucumber_statistics'
+      $tmp_path = 'target/cucumber_statistics'
 
       def clean_tmp_dir
         FileUtils.rm_r tmp_dir
