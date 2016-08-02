@@ -4,9 +4,9 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %meta{:content => "Cucumber Scenario Statistics", :name => "description"}/
+    %meta{:content => "Cucumber Feature Statistics", :name => "description"}/
     %meta{:content => "AlienFast", :name => "author"}/
-    %title Cucumber Scenario Statistics
+    %title Cucumber Feature Statistics
     / Bootstrap core CSS
     %link{:href => "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", :rel => "stylesheet"}/
     / Custom styles for this layout
@@ -77,8 +77,8 @@
     .container
       / Main component for a primary marketing message or call to action
       .jumbotron
-        %h1 Cucumber scenario statistics
-        %p ... find those slow scenarios.
+        %h1 Cucumber feature statistics
+        %p ... find those slow features.
 
       .alert.alert-info
         %span
@@ -91,15 +91,15 @@
       %table.table.table-bordered.table-striped.sortable
         %thead
           %tr
-            %th Scenario File
+            %th Feature File
             %th{"data-defaultsort" => "desc"} Time
         %tbody
 
-          - scenario_statistics.all.each do |file_name, scenario_result|
+          - feature_statistics.all.each do |file_name, feature_result|
 
             %tr
-              = std_file_td file_name, scenario_result[:scenario_name]
-              = std_time_td scenario_result[:duration]
+              = std_file_td file_name, feature_result[:feature_name]
+              = std_time_td feature_result[:duration]
     / /container
     /
       Bootstrap core JavaScript

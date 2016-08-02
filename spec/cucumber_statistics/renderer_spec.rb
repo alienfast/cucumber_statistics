@@ -5,6 +5,7 @@ module CucumberStatistics
 
     subject(:step_statistics) { StepStatistics.new }
     subject(:scenario_statistics) { ScenarioStatistics.new }
+    subject(:feature_statistics) { FeatureStatistics.new }
     subject(:overall_statistics) { OverallStatistics.new }
 
     before(:each) do
@@ -34,7 +35,7 @@ module CucumberStatistics
     end
 
 
-    describe 'render_step_statistics' do
+    describe 'render statistics' do
       context 'should render content' do
 
         it 'renders step results file' do
@@ -45,7 +46,13 @@ module CucumberStatistics
 
         it 'renders scenario results file' do
           expect(File.exists?(Configuration.result_scenario_statistics)).to eql false
-          absolute_file_name = Renderer.render_step_statistics step_statistics, overall_statistics
+          absolute_file_name = Renderer.render_scenario_statistics scenario_statistics, overall_statistics
+          expect(File.exists?(absolute_file_name)).to eql true
+        end
+
+        it 'renders feature results file' do
+          expect(File.exists?(Configuration.result_feature_statistics)).to eql false
+          absolute_file_name = Renderer.render_feature_statistics feature_statistics, overall_statistics
           expect(File.exists?(absolute_file_name)).to eql true
         end
 

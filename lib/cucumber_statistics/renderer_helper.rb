@@ -10,6 +10,10 @@ module CucumberStatistics
       %{<td title="#{scenario_name}">#{name}</td>}
     end
 
+    def std_file_td(file_name, name)
+      %{<td title="#{name}">#{file_name}</td>}
+    end
+
     def time_td(results, metric, *warning_results)
       duration = results[1][metric]
 
@@ -17,6 +21,10 @@ module CucumberStatistics
     end
 
     def scenario_time_td(duration)
+      %{<td data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
+    end
+
+    def std_time_td(duration)
       %{<td data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
     end
 

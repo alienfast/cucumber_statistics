@@ -30,6 +30,10 @@ module CucumberStatistics
         tmp_file('scenario_statistics.html')
       end
 
+      def result_feature_statistics
+        tmp_file('feature_statistics.html')
+      end
+
       def resolve_path_from_root(relative_path)
         if defined?(Rails)
           Rails.root.join(relative_path)

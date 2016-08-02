@@ -32,6 +32,18 @@ module CucumberStatistics
 
         absolute_file_name
       end
+
+      def render_feature_statistics(feature_statistics, overall_statistics)
+        template = Tilt::HamlTemplate.new(File.expand_path('../view/feature_statistics.html.haml', __FILE__))
+        rendered_content = template.render(RendererHelper.new, feature_statistics: feature_statistics, overall_statistics: overall_statistics)
+
+        absolute_file_name = Configuration.result_feature_statistics
+        File.open(absolute_file_name, 'w') do |f|
+          f.write rendered_content
+        end
+
+        absolute_file_name
+      end
     end
   end
 end
