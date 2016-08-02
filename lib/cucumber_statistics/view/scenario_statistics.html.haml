@@ -91,15 +91,15 @@
       %table.table.table-bordered.table-striped.sortable
         %thead
           %tr
-            %th Scenario
+            %th Scenario File
             %th{"data-defaultsort" => "desc"} Time
         %tbody
 
-          - scenario_statistics.all.each do |name, scenario_result|
+          - scenario_statistics.all.each do |file_name, scenario_result|
 
             %tr
-              = scenario_name_td name, scenario_result
-              = scenario_time_td scenario_result
+              = scenario_file_td file_name, scenario_result[:scenario_name]
+              = scenario_time_td scenario_result[:duration]
     / /container
     /
       Bootstrap core JavaScript

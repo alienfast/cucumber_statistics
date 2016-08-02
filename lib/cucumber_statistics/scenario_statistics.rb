@@ -5,21 +5,14 @@ module CucumberStatistics
     end
 
     def record scenario_name, duration, file_colon_line
+      short_file_colon_line = file_colon_line[file_colon_line.index('features').to_i..-1]
 
-      scenario_result = @all[scenario_name]
+      scenario_result = @all[short_file_colon_line]
       scenario_result ||= Hash.new
       scenario_result[:duration] = duration
-      begin
-        file = file_colon_line[file_colon_line.index('features')..-1]
-        scenario_result[:file] = file
-      rescue Exception => e
-        scenario_result[:file] = e.message
-      end
+      scenario_result[:scenario_name] = scenario_name
 
-      @all[scenario_name] ||= scenario_result
-    end
-
-    def calculate
+      @all[short_file_colon_line] ||= scenario_result
     end
 
     def all

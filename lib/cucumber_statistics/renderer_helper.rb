@@ -6,8 +6,8 @@ module CucumberStatistics
       %{<td title="#{results[1][:file]}">#{results[0]}</td>}
     end
 
-    def scenario_name_td(name, result)
-      %{<td title="#{result[:file]}">#{name}</td>}
+    def scenario_file_td(name, scenario_name)
+      %{<td title="#{scenario_name}">#{name}</td>}
     end
 
     def time_td(results, metric, *warning_results)
@@ -16,9 +16,7 @@ module CucumberStatistics
       %{<td #{warning_class(results, warning_results)} data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
     end
 
-    def scenario_time_td(result)
-      duration = result[:duration]
-
+    def scenario_time_td(duration)
       %{<td data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
     end
 

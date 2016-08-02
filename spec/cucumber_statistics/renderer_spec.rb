@@ -4,6 +4,7 @@ module CucumberStatistics
   describe Renderer do
 
     subject(:step_statistics) { StepStatistics.new }
+    subject(:scenario_statistics) { ScenarioStatistics.new }
     subject(:overall_statistics) { OverallStatistics.new }
 
     before(:each) do
@@ -23,21 +24,31 @@ module CucumberStatistics
       record 'my step 4', 4.21
       record 'my step 4', 4.21
 
+      record_scenario 'my scenario 1', 10.2  , '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:8'
+      record_scenario 'my scenario 2', 30.2  , '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:13'
+      record_scenario 'my scenario 3', 17.342, '/Users/kross/alienfast/acme/features/user experience/view.feature:2'
+      record_scenario 'my scenario 3',  3.2  , '/Users/kross/alienfast/acme/features/user experience/view.feature:23'
+
       overall_statistics.end_time = Time.now
       step_statistics.calculate
     end
 
 
     describe 'render_step_statistics' do
-      it 'should render content' do
+      context 'should render content' do
 
-        expect(File.exists?(Configuration.result_step_statistics)).to eql false
+        it 'renders step results file' do
+          expect(File.exists?(Configuration.result_step_statistics)).to eql false
+          absolute_file_name = Renderer.render_step_statistics step_statistics, overall_statistics
+          expect(File.exists?(absolute_file_name)).to eql true
+        end
 
-        absolute_file_name = Renderer.render_step_statistics step_statistics, overall_statistics
-        expect(File.exists?(absolute_file_name)).to eql true
+        it 'renders scenario results file' do
+          expect(File.exists?(Configuration.result_scenario_statistics)).to eql false
+          absolute_file_name = Renderer.render_step_statistics step_statistics, overall_statistics
+          expect(File.exists?(absolute_file_name)).to eql true
+        end
 
-        #file = File.open(absolute_file_name, 'rb')
-        #file_contents = file.read
       end
     end
 
@@ -45,6 +56,12 @@ module CucumberStatistics
       # fake a source for convenience
       step_statistics.record step_name, duration, '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:8'
       overall_statistics.step_count_inc
+    end
+
+    def record_scenario(scenario_name, duration, file_colon_line)
+      # fake a source for convenience
+      scenario_statistics.record scenario_name, duration, file_colon_line
+      overall_statistics.scenario_count_inc
     end
   end
 end
