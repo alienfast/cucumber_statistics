@@ -1,5 +1,7 @@
 require 'cucumber_statistics/configuration'
 require 'cucumber_statistics/step_statistics'
+require 'cucumber_statistics/scenario_statistics'
+require 'cucumber_statistics/feature_statistics'
 require 'cucumber_statistics/overall_statistics'
 require 'cucumber_statistics/unused_steps'
 require 'cucumber_statistics/formatter'

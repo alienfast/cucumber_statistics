@@ -2,22 +2,38 @@ module CucumberStatistics
 
   class RendererHelper
 
-    def name_td(step_results)
-      %{<td title="#{step_results[1][:file]}">#{step_results[0]}</td>}
+    def name_td(results)
+      %{<td title="#{results[1][:file]}">#{results[0]}</td>}
     end
 
-    def time_td(step_results, metric, *warning_step_results)
-      duration = step_results[1][metric]
-
-      %{<td #{warning_class(step_results, warning_step_results)} data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
+    def scenario_file_td(name, scenario_name)
+      %{<td title="#{scenario_name}">#{name}</td>}
     end
 
-    def warning_class(step_results, warning_step_results)
+    def std_file_td(file_name, name)
+      %{<td title="#{name}">#{file_name}</td>}
+    end
 
-      if warning_step_results.nil? || warning_step_results.empty?
+    def time_td(results, metric, *warning_results)
+      duration = results[1][metric]
+
+      %{<td #{warning_class(results, warning_results)} data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
+    end
+
+    def scenario_time_td(duration)
+      %{<td data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
+    end
+
+    def std_time_td(duration)
+      %{<td data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
+    end
+
+    def warning_class(results, warning_results)
+
+      if warning_results.nil? || warning_results.empty?
         should_warn = false
       else
-        should_warn = (step_results[0].eql? warning_step_results[0][0])
+        should_warn = (results[0].eql? warning_results[0][0])
       end
       if should_warn
         %{class="danger"}
@@ -26,8 +42,8 @@ module CucumberStatistics
       end
     end
 
-    def count_td(step_results, metric)
-      value = step_results[1][metric]
+    def count_td(results, metric)
+      value = results[1][metric]
       %{<td data-value="#{value}">#{value}</td>}
     end
 
