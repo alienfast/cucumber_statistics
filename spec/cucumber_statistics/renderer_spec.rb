@@ -25,10 +25,10 @@ module CucumberStatistics
       record 'my step 4', 4.21
       record 'my step 4', 4.21
 
-      record_scenario 'my scenario 1', 10.2  , '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:8'
-      record_scenario 'my scenario 2', 30.2  , '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:13'
+      record_scenario 'my scenario 1', 10.2, '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:8'
+      record_scenario 'my scenario 2', 30.2, '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature:13'
       record_scenario 'my scenario 3', 17.342, '/Users/kross/alienfast/acme/features/user experience/view.feature:2'
-      record_scenario 'my scenario 3',  3.2  , '/Users/kross/alienfast/acme/features/user experience/view.feature:23'
+      record_scenario 'my scenario 3', 3.2, '/Users/kross/alienfast/acme/features/user experience/view.feature:23'
 
       overall_statistics.end_time = Time.now
       step_statistics.calculate

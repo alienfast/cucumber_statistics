@@ -50,7 +50,7 @@ module CucumberStatistics
       it 'should calculate the fastest step' do
         expect(step_statistics.all['my step'][:fastest]).to eq 25
       end
-      
+
       it 'should calculate the slowest step' do
         expect(step_statistics.all['my step'][:slowest]).to eq 75
       end
@@ -79,10 +79,10 @@ module CucumberStatistics
         expect(step_statistics.all.count).to eq 2
         step_statistics.all.each_with_index do |step_name, data, index|
           case index
-          when 1
-            expect(step_name).to eq 'my_step 2'
-          when 2
-            expect(step_name).to eq 'my_step 1'
+            when 1
+              expect(step_name).to eq 'my_step 2'
+            when 2
+              expect(step_name).to eq 'my_step 1'
           end
         end
       end
@@ -171,21 +171,21 @@ module CucumberStatistics
 
     describe 'sample_variance' do
       it 'should calculate the variance' do
-        expect(step_statistics.sample_variance([1,2,3,4,5,6])).to be_within(0.1).of(3.5)
-        expect(step_statistics.sample_variance([2,4,4,4,5,5,7,9])).to be_within(0.1).of(4.57)
-        expect(step_statistics.sample_variance([25,50,75])).to be_within(0.1).of(625)
+        expect(step_statistics.sample_variance([1, 2, 3, 4, 5, 6])).to be_within(0.1).of(3.5)
+        expect(step_statistics.sample_variance([2, 4, 4, 4, 5, 5, 7, 9])).to be_within(0.1).of(4.57)
+        expect(step_statistics.sample_variance([25, 50, 75])).to be_within(0.1).of(625)
       end
     end
 
     describe 'standard_deviation' do
       it 'should calculate the standard deviation' do
-        sample_variance = step_statistics.sample_variance([1,2,3,4,5,6])
+        sample_variance = step_statistics.sample_variance([1, 2, 3, 4, 5, 6])
         expect(step_statistics.standard_deviation(sample_variance)).to be_within(0.1).of(1.87)
-        
-        sample_variance = step_statistics.sample_variance([2,4,4,4,5,5,7,9])
+
+        sample_variance = step_statistics.sample_variance([2, 4, 4, 4, 5, 5, 7, 9])
         expect(step_statistics.standard_deviation(sample_variance)).to be_within(0.1).of(2.13)
 
-        sample_variance = step_statistics.sample_variance([25,50,75])
+        sample_variance = step_statistics.sample_variance([25, 50, 75])
         expect(step_statistics.standard_deviation(sample_variance)).to be_within(0.1).of(25)
       end
     end
