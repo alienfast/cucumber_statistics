@@ -10,11 +10,11 @@ module CucumberStatistics
     it 'should auto create tmp_dir' do
 
       tmp_dir = Configuration.tmp_dir
-      Dir.exists?(tmp_dir).should == true
+      expect(Dir.exists?(tmp_dir)).to be_truthy
 
       Dir.delete tmp_dir
       tmp_dir = Configuration.tmp_dir
-      Dir.exists?(tmp_dir).should == true
+      expect(Dir.exists?(tmp_dir)).to be_truthy
     end
   end
 end
