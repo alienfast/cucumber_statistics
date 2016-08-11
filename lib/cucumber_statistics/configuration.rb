@@ -22,16 +22,8 @@ module CucumberStatistics
         "#{tmp_dir}/#{filename}"
       end
 
-      def result_step_statistics
-        tmp_file('step_statistics.html')
-      end
-
-      def result_scenario_statistics
-        tmp_file('scenario_statistics.html')
-      end
-
-      def result_feature_statistics
-        tmp_file('feature_statistics.html')
+      def result_combined_statistics
+        tmp_file('combined_statistics.html')
       end
 
       def resolve_path_from_root(relative_path)

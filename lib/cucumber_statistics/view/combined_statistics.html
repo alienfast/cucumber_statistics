@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta content='Cucumber Scenario Statistics' name='description'>
+    <meta content='AlienFast' name='author'>
+    <title>Cucumber Scenario Statistics</title>
+    <!-- Bootstrap core CSS -->
+    <link href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' rel='stylesheet'>
+    <!-- Custom styles for this layout -->
+    <style>
+      body {
+          min-height: 2000px;
+          padding-top: 70px;
+      }
+      
+      td {
+          white-space: nowrap;
+          /*max-width: 100px;*/
+      }
+      tr td:first-child {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 300px;
+      }
+    </style>
+    <link href='https://raw.githack.com/drvic10k/bootstrap-sortable/master/Contents/bootstrap-sortable.css' rel='stylesheet'>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Fixed navbar -->
+    <div class='navbar navbar-default navbar-fixed-top' role='navigation'>
+      <div class='container'>
+        <div class='navbar-header'>
+          <button class='navbar-toggle' data-target='.navbar-collapse' data-toggle='collapse' type='button'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand' href='#'>cucumber_statistics</a>
+        </div>
+        <div class='navbar-collapse collapse'>
+          <ul class='nav navbar-nav navbar-right'>
+            <li>
+              <a href='https://github.com/alienfast/cucumber_statistics' target='other'>Github</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /.nav-collapse -->
+    <div class='container'>
+      <div class='navbar'>
+        <div class='tabbable'>
+          <ul class='nav nav-tabs'>
+            <li class='active'>
+              <a class='content_tab' href='#steps_tab' toggle='tab'>
+                Steps
+              </a>
+            </li>
+            <li>
+              <a class='content_tab' href='#scenarios_tab' toggle='tab'>
+                Scenarios
+              </a>
+            </li>
+            <li>
+              <a class='content_tab' href='#features_tab' toggle='tab'>
+                Features
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class='container'>
+          <div class='tab-content'>
+            <div class='tab-pane active' id='steps_tab'>
+              <!-- Main component for a primary marketing message or call to action -->
+              <div class='jumbotron'>
+                <h1>Cucumber step statistics</h1>
+                <p>... allows you to easily identify long running steps.</p>
+              </div>
+              <div class='alert alert-info'>
+                          <span>
+                            2 Features,
+                            6 Scenarios,
+                            24 Steps completed in 13.190s.
+                            <span class='text-muted pull-right small'>
+                              Finished on 08/11/2016 at 06:19PM
+                            </span>
+                          </span>
+              </div>
+              <table class='table table-bordered table-striped sortable'>
+                <thead>
+                  <tr>
+                    <th>Step</th>
+                    <th>Fastest</th>
+                    <th>Slowest</th>
+                    <th>Variation</th>
+                    <th>Variance</th>
+                    <th>Std Deviation</th>
+                    <th>Count</th>
+                    <th>Average</th>
+                    <th data-defaultsort='desc'>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td title="features/scenarios/calculator2.feature:7">/^I have a calculator$/</td>
+                    <td  data-value="0.303663" title="0.303663">0.303s</td>
+                    <td  data-value="0.303663" title="0.303663">0.303s</td>
+                    <td  data-value="0.0" title="0.0">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td data-value="1">1</td>
+                    <td  data-value="0.303663" title="0.303663">0.303s</td>
+                    <td  data-value="0.303663" title="0.303663">0.303s</td>
+                  </tr>
+                  <tr>
+                    <td title="features/scenarios/calculator2.feature:31">/^I have entered (\d+(?:.\d+)?) into the calculator$/</td>
+                    <td  data-value="0.202248" title="0.202248">0.202s</td>
+                    <td  data-value="0.20617" title="0.20617">0.206s</td>
+                    <td class="danger" data-value="0.003921999999999981" title="0.003921999999999981">0.003s</td>
+                    <td  data-value="1.7393255535714161e-06" title="1.7393255535714161e-06">< 0.000s</td>
+                    <td  data-value="0.0013188349227903453" title="0.0013188349227903453">0.001s</td>
+                    <td data-value="8">8</td>
+                    <td  data-value="0.204455875" title="0.204455875">0.204s</td>
+                    <td  data-value="1.635647" title="1.635647">1.635s</td>
+                  </tr>
+                  <tr>
+                    <td title="features/scenarios/calculator2.feature:31">/^I add$/</td>
+                    <td  data-value="0.503672" title="0.503672">0.503s</td>
+                    <td  data-value="0.505097" title="0.505097">0.505s</td>
+                    <td  data-value="0.0014250000000000096" title="0.0014250000000000096">0.001s</td>
+                    <td  data-value="4.3458091666665543e-07" title="4.3458091666665543e-07">< 0.000s</td>
+                    <td  data-value="0.0006592275151013157" title="0.0006592275151013157">< 0.000s</td>
+                    <td data-value="4">4</td>
+                    <td  data-value="0.5045937500000001" title="0.5045937500000001">0.504s</td>
+                    <td  data-value="2.0183750000000003" title="2.0183750000000003">2.018s</td>
+                  </tr>
+                  <tr>
+                    <td title="features/scenarios/calculator2.feature:31">/^the result should be (\d+(?:.\d+)?) on the screen$/</td>
+                    <td  data-value="0.60374" title="0.60374">0.603s</td>
+                    <td  data-value="0.605351" title="0.605351">0.605s</td>
+                    <td  data-value="0.001610999999999918" title="0.001610999999999918">0.001s</td>
+                    <td  data-value="5.657283333333006e-07" title="5.657283333333006e-07">< 0.000s</td>
+                    <td  data-value="0.0007521491430117437" title="0.0007521491430117437">< 0.000s</td>
+                    <td data-value="4">4</td>
+                    <td  data-value="0.6043245" title="0.6043245">0.604s</td>
+                    <td  data-value="2.417298" title="2.417298">2.417s</td>
+                  </tr>
+                  <tr>
+                    <td title="features/scenarios/demo.feature:5">/^I enter (.*) into google$/</td>
+                    <td  data-value="3.148444" title="3.148444">3.148s</td>
+                    <td  data-value="3.148444" title="3.148444">3.148s</td>
+                    <td  data-value="0.0" title="0.0">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td data-value="1">1</td>
+                    <td class="danger" data-value="3.148444" title="3.148444">3.148s</td>
+                    <td class="danger" data-value="3.148444" title="3.148444">3.148s</td>
+                  </tr>
+                  <tr>
+                    <td title="features/scenarios/demo.feature:6">/^I run the search$/</td>
+                    <td  data-value="1.820547" title="1.820547">1.820s</td>
+                    <td  data-value="1.820547" title="1.820547">1.820s</td>
+                    <td  data-value="0.0" title="0.0">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td data-value="1">1</td>
+                    <td  data-value="1.820547" title="1.820547">1.820s</td>
+                    <td  data-value="1.820547" title="1.820547">1.820s</td>
+                  </tr>
+                  <tr>
+                    <td title="features/scenarios/demo.feature:7">/^I see results$/</td>
+                    <td  data-value="0.855183" title="0.855183">0.855s</td>
+                    <td  data-value="0.855183" title="0.855183">0.855s</td>
+                    <td  data-value="0.0" title="0.0">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td  data-value="" title="">-</td>
+                    <td data-value="1">1</td>
+                    <td  data-value="0.855183" title="0.855183">0.855s</td>
+                    <td  data-value="0.855183" title="0.855183">0.855s</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /container -->
+            <div class='tab-pane' id='scenarios_tab'>
+              <!-- Main component for a primary marketing message or call to action -->
+              <div class='jumbotron'>
+                <h1>Cucumber scenario statistics</h1>
+                <p>... find those slow scenarios.</p>
+              </div>
+              <div class='alert alert-info'>
+                          <span>
+                            2 Features,
+                            6 Scenarios,
+                            24 Steps completed in 13.190s.
+                            <span class='text-muted pull-right small'>
+                              Finished on 08/11/2016 at 06:19PM
+                            </span>
+                          </span>
+              </div>
+              <table class='table table-bordered table-striped sortable'>
+                <thead>
+                  <tr>
+                    <th>Scenario File</th>
+                    <th data-defaultsort='desc'>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td title="Regular numbers">features/scenarios/calculator2.feature:10</td>
+                    <td data-value="1.316579" title="1.316579">1.316s</td>
+                  </tr>
+                  <tr>
+                    <td title="Regular numbers again">features/scenarios/calculator2.feature:16</td>
+                    <td data-value="1.314667" title="1.314667">1.314s</td>
+                  </tr>
+                  <tr>
+                    <td title="| 3.5 | 5.2 | 8.7 |">features/scenarios/calculator2.feature:31</td>
+                    <td data-value="3.136923" title="3.136923">3.136s</td>
+                  </tr>
+                  <tr>
+                    <td title="Run a google search">features/scenarios/demo.feature:4</td>
+                    <td data-value="2.730182" title="2.730182">2.730s</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /container -->
+            <div class='tab-pane' id='features_tab'>
+              <!-- Main component for a primary marketing message or call to action -->
+              <div class='jumbotron'>
+                <h1>Cucumber feature statistics</h1>
+                <p>... find those slow features.</p>
+              </div>
+              <div class='alert alert-info'>
+                          <span>
+                            2 Features,
+                            6 Scenarios,
+                            24 Steps completed in 13.190s.
+                            <span class='text-muted pull-right small'>
+                              Finished on 08/11/2016 at 06:19PM
+                            </span>
+                          </span>
+              </div>
+              <table class='table table-bordered table-striped sortable'>
+                <thead>
+                  <tr>
+                    <th>Feature File</th>
+                    <th data-defaultsort='desc'>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td title="Addition
+                      In order to check my work
+                      As a mathematician
+                      I want to be told the sum of two numbers">features/scenarios/calculator2.feature:1</td>
+                    <td data-value="7.309345" title="7.309345">7.309s</td>
+                  </tr>
+                  <tr>
+                    <td title="A simple test to show custom format methods">features/scenarios/demo.feature:1</td>
+                    <td data-value="5.880826" title="5.880826">5.880s</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /container -->
+    <!-- Bootstrap core JavaScript -->
+    <!-- \================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script src='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+    <script src='https://raw.githack.com/drvic10k/bootstrap-sortable/master/Scripts/moment.min.js'></script>
+    <script src='https://raw.githack.com/drvic10k/bootstrap-sortable/master/Scripts/bootstrap-sortable.js'></script>
+    <script>
+      // Initialise on DOM ready
+      $(function() {
+          $.bootstrapSortable(true, 'reversed');
+      });
+      $('a.content_tab').click(function (e) {
+        e.preventDefault();
+        $(e.target).tab('show');
+      });
+    </script>
+  </body>
+</html>
