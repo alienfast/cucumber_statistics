@@ -95,9 +95,7 @@ module CucumberStatistics
 
       @step_statistics.calculate
 
-      file = Renderer.render_step_statistics @step_statistics, @overall_statistics
-      Renderer.render_scenario_statistics @scenario_statistics, @overall_statistics
-      Renderer.render_feature_statistics @feature_statistics, @overall_statistics
+      Renderer.render_combined_statistics @step_statistics, @scenario_statistics, @feature_statistics, @overall_statistics
     end
   end
 end

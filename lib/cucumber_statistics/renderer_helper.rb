@@ -28,6 +28,19 @@ module CucumberStatistics
       %{<td data-value="#{duration}" title="#{duration}">#{format(duration)}</td>}
     end
 
+    def alert_info_text(overall_statistics)
+      <<-HTML
+          <span>
+            #{overall_statistics.feature_count} Features,
+            #{overall_statistics.scenario_count} Scenarios,
+            #{overall_statistics.step_count} Steps completed in #{format(overall_statistics.duration)}.
+            <span class='text-muted pull-right small'>
+              Finished on #{format_date_time(overall_statistics.end_time)}
+            </span>
+          </span>
+      HTML
+    end
+
     def warning_class(results, warning_results)
 
       if warning_results.nil? || warning_results.empty?

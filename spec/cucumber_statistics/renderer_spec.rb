@@ -30,6 +30,9 @@ module CucumberStatistics
       record_scenario 'my scenario 3', 17.342, '/Users/kross/alienfast/acme/features/user experience/view.feature:2'
       record_scenario 'my scenario 3', 3.2, '/Users/kross/alienfast/acme/features/user experience/view.feature:23'
 
+      record_feature 'my admin feature', 50, '/Users/kross/alienfast/acme/features/account management/admin_cancel_account.feature'
+      record_feature 'my user feature', 50, '/Users/kross/alienfast/acme/features/user experience/view.feature'
+
       overall_statistics.end_time = Time.now
       step_statistics.calculate
     end
@@ -38,21 +41,9 @@ module CucumberStatistics
     describe 'render statistics' do
       context 'should render content' do
 
-        it 'renders step results file' do
-          expect(File.exists?(Configuration.result_step_statistics)).to eql false
-          absolute_file_name = Renderer.render_step_statistics step_statistics, overall_statistics
-          expect(File.exists?(absolute_file_name)).to eql true
-        end
-
-        it 'renders scenario results file' do
-          expect(File.exists?(Configuration.result_scenario_statistics)).to eql false
-          absolute_file_name = Renderer.render_scenario_statistics scenario_statistics, overall_statistics
-          expect(File.exists?(absolute_file_name)).to eql true
-        end
-
-        it 'renders feature results file' do
-          expect(File.exists?(Configuration.result_feature_statistics)).to eql false
-          absolute_file_name = Renderer.render_feature_statistics feature_statistics, overall_statistics
+        it 'renders combined results file' do
+          expect(File.exists?(Configuration.result_combined_statistics)).to eql false
+          absolute_file_name = Renderer.render_combined_statistics step_statistics, scenario_statistics, feature_statistics, overall_statistics
           expect(File.exists?(absolute_file_name)).to eql true
         end
 
@@ -69,6 +60,12 @@ module CucumberStatistics
       # fake a source for convenience
       scenario_statistics.record scenario_name, duration, file_colon_line
       overall_statistics.scenario_count_inc
+    end
+
+    def record_feature(feature_name, duration, file_colon_line)
+      # fake a source for convenience
+      feature_statistics.record feature_name, duration, file_colon_line
+      overall_statistics.feature_count_inc
     end
   end
 end
