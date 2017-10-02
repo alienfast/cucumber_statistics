@@ -26,7 +26,7 @@ module CucumberStatistics
     def after_step_result(keyword, step_match, multiline_arg, status, exception, source_indent, background, file_colon_line)
       step_definition = step_match.step_definition
       unless step_definition.nil? # nil if it's from a scenario outline
-        @step_statistics.record step_definition.regexp_source, @step_duration, file_colon_line
+        @step_statistics.record step_definition.expression, @step_duration, file_colon_line
       end
     end
 
